@@ -1,0 +1,44 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+// rev a queue k times
+int n; cin>>n; queue<int>d;int k; cin>>k;
+for(int i=0;i<n;i++)
+{
+    int x;cin>>x;
+ d.push(x);  
+}
+stack<int>s;
+
+for(int i=0;i<k;i++)
+{
+s.push(d.front());
+d.pop();
+}
+
+while(!s.empty())
+{
+    int x=s.top();
+    s.pop();
+    d.push(x);
+}
+for(int i=0;i<n-k;i++)
+{
+    d.push(d.front());
+    d.pop();
+}
+while(!d.empty())
+{
+    int x=d.front();
+    cout<<x<<endl;
+    d.pop();
+
+}
+
+
+	return 0;
+}
+
